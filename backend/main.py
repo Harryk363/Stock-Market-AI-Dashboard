@@ -9,6 +9,7 @@ from market_data import load_price_features, fetch_news_headlines
 from models import MODEL_NAMES, train_and_evaluate
 from sentiment import NewsSentiment
 from market_data import get_stock_metrics, get_historical_data
+from sentiment import get_sentiment_analyzer
 
 
 
@@ -203,7 +204,7 @@ def get_stock_news(
                 "news": [],
             }
 
-        sentiment_analyzer = NewsSentiment()
+        sentiment_analyzer = get_sentiment_analyzer()
 
         sentiment_results, sentiment_score = sentiment_analyzer.analyze(
             headlines

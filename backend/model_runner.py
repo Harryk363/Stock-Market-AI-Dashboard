@@ -13,6 +13,7 @@ from models import (
 )
 
 from sentiment import NewsSentiment
+from sentiment import get_sentiment_analyzer
 
 
 # ============================================================
@@ -152,14 +153,15 @@ def analyze_stock(
     # ========================================================
     # 7. Analyze news with FinBERT
     # ========================================================
-
+    
     sentiment_results = []
 
     sentiment_score = 0.0
 
     if headlines:
 
-        sentiment_analyzer = NewsSentiment()
+        sentiment_analyzer = get_sentiment_analyzer()
+        
 
         (
             sentiment_results,
